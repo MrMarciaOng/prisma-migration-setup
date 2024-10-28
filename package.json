@@ -1,0 +1,19 @@
+{
+  "name": "prisma-migration-setup",
+  "version": "1.0.0",
+  "description": "for public",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:down": "npx prisma migrate diff  --from-schema-datamodel prisma/schema.prisma  --to-schema-datasource prisma/schema.prisma  --script > down.sql",
+    "generate:migration": "npx prisma migrate dev --create-only && ./scripts/copy_down_sql.sh"
+  },
+  "author": "Marcia Ong",
+  "license": "ISC",
+  "devDependencies": {
+    "prisma": "^5.21.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.21.1"
+  }
+}
